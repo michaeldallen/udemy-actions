@@ -15,15 +15,14 @@ jobs:
           ls -l /
           docker --version
           
-  foo:
+  build-docker-image:
     runs-on: [self-hosted ]
     steps:
-      - name: bar
-        run: echo biteme
-        
+      - name: docker login
+        run: |
+          echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
+          docker info
           
-
-
-
+          
       
         
