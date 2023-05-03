@@ -11,6 +11,9 @@ jobs:
           cat /etc/os-release
           uname -a 
           pwd
+          ls -l 
+          ls -l /
+          
 
 
 
