@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: what is our working environment
         run: |
-          lsb_relase -a
+          cat /etc/os-release
           uname -a 
           pwd
 
