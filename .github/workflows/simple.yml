@@ -15,7 +15,12 @@ jobs:
           ls -l /
           docker --version
           
-          
+  foo:
+    runs-on: [self-hosted ]
+    steps:
+      - name: bar
+        run: echo biteme
+        
           
 
 
