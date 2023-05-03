@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
           docker info
-          
+          /home/runner/.docker/config.json
           
       
         
