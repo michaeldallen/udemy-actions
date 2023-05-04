@@ -9,19 +9,13 @@ on:
 
   
 jobs:
-  pre-flight-checks:
-    runs-on: [ self-hosted ]
-    steps:
-      - uses: actions/checkout@v2
-
           
   build-docker-image:
     runs-on: [self-hosted ]
     steps:
       - uses: actions/checkout@v2
       
-      
-      - name: what is our working environment
+      - name: pre-flight checks
         run: |
           cat /etc/os-release
           uname -a 
@@ -40,7 +34,6 @@ jobs:
         run: |
           cd docker
           docker build . -t mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
-          
           
       - name: docker push image
         run: docker image push mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
