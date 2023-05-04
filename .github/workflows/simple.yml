@@ -1,7 +1,10 @@
 name: shell commands
 
 on: [push]
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  
 jobs:
   pre-flight-checks:
     runs-on: [ self-hosted ]
@@ -26,3 +29,4 @@ jobs:
           
       
         
+ 
