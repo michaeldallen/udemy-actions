@@ -24,8 +24,8 @@ jobs:
   build-docker-image:
     runs-on: [self-hosted ]
     steps:
+      - uses: actions/checkout@v2
       - name: docker login
-        uses: actions/checkout@v2
         run: |
           echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
           docker info
