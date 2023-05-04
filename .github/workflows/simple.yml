@@ -31,7 +31,13 @@ jobs:
           echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
           docker info
           cat /home/runner/.docker/config.json
-          
-      
+
+      - name: step2
+        run: echo another one ... step2
         
- 
+      - name: step3
+        run: |
+          date
+          pwd
+          ls -l
+          
