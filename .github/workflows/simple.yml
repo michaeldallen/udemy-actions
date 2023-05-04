@@ -13,6 +13,14 @@ jobs:
     runs-on: [ self-hosted ]
     steps:
       - uses: actions/checkout@v2
+
+          
+  build-docker-image:
+    runs-on: [self-hosted ]
+    steps:
+      - uses: actions/checkout@v2
+      
+      
       - name: what is our working environment
         run: |
           cat /etc/os-release
@@ -22,19 +30,17 @@ jobs:
           ls -l /
           docker --version
           
-  build-docker-image:
-    runs-on: [self-hosted ]
-    steps:
-      - uses: actions/checkout@v2
       - name: docker login
         run: |
           echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
           docker info
           cat /home/runner/.docker/config.json
 
-      - name: step2
-        run: echo another one ... step2
-        
+      - name: docker build
+        run: |
+          cd docker
+          docker build . -t mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
+          
       - name: step3
         run: |
           date
