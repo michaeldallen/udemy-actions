@@ -1,0 +1,41 @@
+name: actions test
+
+on: 
+  push:
+
+  workflow_dispatch:
+  
+  
+
+  
+jobs:
+          
+  build-docker-image:
+    runs-on: [self-hosted ]
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: pre-flight checks
+        run: |
+          cat /etc/os-release
+          uname -a 
+          pwd
+          ls -l 
+          ls -l /
+          docker --version
+          
+      - name: docker login
+        run: |
+          echo "${{ secrets.DOCKER_PUSH_TOKEN }}" | docker login mw-docker.repositories.mathworks.com -u "${{ secrets.DOCKER_PUSH_USER }}" --password-stdin
+          docker info
+          cat /home/runner/.docker/config.json
+
+      - name: docker build
+        run: |
+          cd docker
+          docker build . -t mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
+          
+      - name: docker push image
+        run: docker image push mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
+    
+    
