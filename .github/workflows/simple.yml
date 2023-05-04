@@ -1,9 +1,12 @@
 name: shell commands
 
-on: [push]
+on: 
+  push:
 
   workflow_dispatch:
   
+  
+
   
 jobs:
   pre-flight-checks:
