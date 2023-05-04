@@ -41,9 +41,8 @@ jobs:
           cd docker
           docker build . -t mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
           
-      - name: step3
-        run: |
-          date
-          pwd
-          ls -l
           
+      - name: docker push image
+        run: docker image push mw-docker.repositories.mathworks.com/gha-docker-push-sample-mallen:latest
+    
+    
