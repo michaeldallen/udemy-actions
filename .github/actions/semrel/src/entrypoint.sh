@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#set -e
-#set -u
-#set -x
+
+set -e
+set -u
+set -x
 
 git config --global --add safe.directory /github/workspace
 git config --global user.email "you@example.com"
