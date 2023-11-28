@@ -4,7 +4,9 @@
 #set -x
 
 git config --global --add safe.directory /github/workspace
-
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+  
 pwd| sed 's/^/pwd:/'
 
 
