@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-set -e
-set -x
+#set -e
+#set -u
+#set -x
 
 
 pwd| sed 's/^/pwd:/'
