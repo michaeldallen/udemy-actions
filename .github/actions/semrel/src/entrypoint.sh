@@ -3,8 +3,11 @@
 #set -u
 #set -x
 
+git config --global --add safe.directory /github/workspace
 
 pwd| sed 's/^/pwd:/'
+
+
 find . | fgrep -v .git | sort | sed 's/^/find:/'
 
 
