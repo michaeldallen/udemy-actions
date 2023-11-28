@@ -8,5 +8,5 @@ WORKDIR /workdir
 
 COPY ["src", "/workdir/src"]
 
-ENTRYPOINT ["/workdir/src/entrypoint.sh"]
+ENTRYPOINT ["bash", "/workdir/src/entrypoint.sh"]
 
