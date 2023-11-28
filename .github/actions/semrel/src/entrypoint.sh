@@ -22,4 +22,9 @@ git push origin foo
 #git push -d origin foo
 #git tag -d foo
 
+
+cp -v /workdir/src/dot_releaserc .releaserc 
+
+
+
 npx --no-install semantic-release --dry-run
