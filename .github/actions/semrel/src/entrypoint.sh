@@ -28,4 +28,4 @@ cp -v /workdir/src/dot_releaserc .releaserc
 
 
 
-npx --no-install semantic-release --dry-run
+npx --no-install semantic-release #--dry-run
