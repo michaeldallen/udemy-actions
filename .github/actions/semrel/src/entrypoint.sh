@@ -3,7 +3,7 @@ set -e
 set -x
 
 
-echo $(pwd) | sed 's/^/pwd:/'
+pwd| sed 's/^/pwd:/'
 find . | fgrep -v .git | sort | sed 's/^/find:/'
 
 
